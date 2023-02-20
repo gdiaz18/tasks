@@ -4,7 +4,7 @@
  *      C = (F - 32) * 5/9
  */
 export function fahrenheitToCelius(temperature: number): number {
-    return 0;
+    return (temperature - 32) * (5 / 9);
 }
 
 /**
@@ -12,7 +12,9 @@ export function fahrenheitToCelius(temperature: number): number {
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
-    return 0;
+    if (first && second && third > 0) {
+        return first + second + third;
+    }
 }
 
 /**
@@ -20,7 +22,7 @@ export function add3(first: number, second: number, third: number): number {
  * mark added to the end.
  */
 export function shout(message: string): string {
-    return "";
+    return message.toUpperCase + "!";
 }
 
 /**
@@ -37,5 +39,11 @@ export function isQuestion(message: string): boolean {
  * upper or lower case), then return `false`. Otherwise, return `null`.
  */
 export function convertYesNo(word: string): boolean | null {
-    return true;
+    if (word.toUpperCase() || word.toLowerCase() === "yes") {
+        return true;
+    } else if (word.toUpperCase() || word.toLowerCase() === "no") {
+        return false;
+    } else {
+        return null;
+    }
 }
