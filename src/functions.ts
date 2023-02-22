@@ -12,9 +12,18 @@ export function fahrenheitToCelius(temperature: number): number {
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
-    if (first && second && third > 0) {
-        return first + second + third;
+    // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+    let sum: number = 0;
+    if (first > 0) {
+        sum += first;
     }
+    if (second > 0) {
+        sum += second;
+    }
+    if (third > 0) {
+        sum += third;
+    }
+    return sum;
 }
 
 /**
@@ -22,7 +31,7 @@ export function add3(first: number, second: number, third: number): number {
  * mark added to the end.
  */
 export function shout(message: string): string {
-    return message.toUpperCase + "!";
+    return message.toUpperCase() + "!";
 }
 
 /**
@@ -30,7 +39,7 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    return true;
+    return message[message.length - 1] === "?" ? true : false;
 }
 
 /**
@@ -39,9 +48,9 @@ export function isQuestion(message: string): boolean {
  * upper or lower case), then return `false`. Otherwise, return `null`.
  */
 export function convertYesNo(word: string): boolean | null {
-    if (word.toUpperCase() || word.toLowerCase() === "yes") {
+    if (word.toUpperCase() === "Yes" || word.toLowerCase() === "yes") {
         return true;
-    } else if (word.toUpperCase() || word.toLowerCase() === "no") {
+    } else if (word.toUpperCase() === "No" || word.toLowerCase() === "no") {
         return false;
     } else {
         return null;
