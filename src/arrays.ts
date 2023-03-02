@@ -1,4 +1,4 @@
-import { workerData } from "worker_threads";
+//import { workerData } from "worker_threads";
 
 /**
  * Consume an array of numbers, and return a new array containing
