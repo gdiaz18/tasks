@@ -21,7 +21,6 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const tripled = numbers.map((num: number): number => num * 3);
     return tripled;
 }
@@ -46,15 +45,14 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    const noSymbol = amounts.map((amount: string): string =>
+    const noSymbols = amounts.map((amount: string): string =>
         amount.includes("$")
             ? (amount = amount.slice(1, amount.length))
             : amount
     );
 
-    const toNumber = noSymbol.map((amount: string): number => Number(amount));
-
-    const answer = toNumber.map((amount: number): number =>
+    const numbers = noSymbols.map((amount: string): number => Number(amount));
+    const answer = numbers.map((amount: number): number =>
         isNaN(amount) ? (amount = 0) : amount
     );
     return answer;
@@ -95,7 +93,6 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     let result = false;
     if (colors.length === 0) {
         result = true;
