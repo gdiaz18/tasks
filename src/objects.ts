@@ -126,7 +126,7 @@ export function publishQuestion(question: Question): Question {
     const newQuestion = { ...question };
     if (question.published) {
         newQuestion.published = false;
-    } else if (question.published === false) {
+    } else {
         newQuestion.published = true;
     }
     return newQuestion;
