@@ -6,7 +6,12 @@ import { Question, QuestionType } from "./interfaces/question";
  * that are `published`.
  */
 export function getPublishedQuestions(questions: Question[]): Question[] {
-    return [];
+    let newPublished = [...questions];
+    //Makes new list filtering out any Questions that HAVE NOT been published
+    newPublished = newPublished.filter(
+        (word: Question): boolean => word.published
+    );
+    return newPublished;
 }
 
 /**
@@ -15,7 +20,13 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * `expected`, and an empty array for its `options`.
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    return [];
+    /* let nonEmpty = [...questions];
+    nonEmpty = nonEmpty.filter(
+        (word: Question): boolean =>
+            word.body != "" && word.expected != "" && word.options.length != 0
+    );
+    console.log(nonEmpty);
+    return nonEmpty; */
 }
 
 /***
@@ -26,7 +37,14 @@ export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
-    return null;
+    const newQuestion = questions.find(
+        (word: Question): boolean => word.id === id
+    );
+    if (newQuestion) {
+        return newQuestion;
+    } else {
+        return null;
+    }
 }
 
 /**
@@ -34,7 +52,8 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const noIds = questions.filter((word: Question): boolean => word.id != id);
+    return noIds;
 }
 
 /***
@@ -42,14 +61,20 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const newNames = questions.map((word: Question): string => word.name);
+    return newNames;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    const totalPoints = questions.reduce(
+        (currentSum: number, question: Question) =>
+            currentSum + question.points,
+        0
+    );
+    return totalPoints;
 }
 
 /***
@@ -77,7 +102,16 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    //const newCopy = { ...questions };
+    const newFile = questions
+        .map(
+            (question: Question): string =>
+                `${question.id},${question.name},${question.options.length},${question.points},${question.published}`
+        )
+        .join("\n")
+        .trim();
+    console.log(newFile);
+    return newFile.trim();
 }
 
 /**
