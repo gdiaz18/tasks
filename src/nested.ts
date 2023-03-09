@@ -1,6 +1,6 @@
-import { type } from "os";
-import { Popover } from "react-bootstrap";
-import { text } from "stream/consumers";
+//import { type } from "os";
+//import { Popover } from "react-bootstrap";
+//import { text } from "stream/consumers";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import {
