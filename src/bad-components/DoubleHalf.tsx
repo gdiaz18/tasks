@@ -10,7 +10,6 @@ function Halver(): JSX.Element {
     return <Button onClick={() => setDhValue(0.5 * dhValue)}>Halve</Button>;
 }
 
-export function DoubleHalf(): JSX.Element {
     return (
         <div>
             <h3>Double Half</h3>
